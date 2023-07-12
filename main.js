@@ -24,6 +24,9 @@ const person = {
 sayHi = function (name) {
   return `Hi ${name}!`;
 };
-sayHi = (name) => `Hi ${name}!`;
+sayHi = (name) => ({
+  name: name,
+});
 
-console.log(sayHi('John'));
+sayHi = (name, message = `${name}!`) => `Hi ${message}`;
+console.log(sayHi('Yoshipi', 'I like chocolate.'));
