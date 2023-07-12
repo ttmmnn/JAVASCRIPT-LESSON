@@ -20,4 +20,10 @@ const person = {
     return 'hi';
   },
 };
-console.log(person.sayHi());
+
+sayHi = function (name) {
+  return `Hi ${name}!`;
+};
+sayHi = (name) => `Hi ${name}!`;
+
+console.log(sayHi('John'));
