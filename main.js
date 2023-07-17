@@ -29,4 +29,13 @@ sayHi = (name) => ({
 });
 
 sayHi = (name, message = `${name}!`) => `Hi ${message}`;
-console.log(sayHi('Yoshipi', 'I like chocolate.'));
+
+let sum = (...nums) => {
+  console.log(nums);
+  let total = 0;
+  for (num of nums) {
+    total += num;
+  }
+  return total;
+};
+console.log(sum([1, 3, 5, 3, 4, 5, 7]));
