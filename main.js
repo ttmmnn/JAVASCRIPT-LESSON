@@ -41,26 +41,46 @@ sayHi = (name) => `Hi ${name}!`;
 
 //デフォルトパラメータ
 sayHi = (name = 'User') => `Hi ${name}!`;
-console.log(sayHi());
+// console.log(sayHi());
 
 //2つのパラメータを渡したい場合は、以下のようにする
 sayHi = (name = 'User', message) => `Hi ${name}! ${message}`;
-console.log(sayHi('Yoshipi', 'I like chocolate.'));
+// console.log(sayHi('Yoshipi', 'I like chocolate.'));
 
 //第1引数でデフォルトパラメータを使用したい場合は以下のようにundefinedと書くことになり、冗長化した記述となる
 sayHi = (name = 'User', message) => `Hi ${name}! ${message}`;
-console.log(sayHi(undefined, 'I like chocolate.'));
+// console.log(sayHi(undefined, 'I like chocolate.'));
 
 //なので、デフォルトパラメータを使用する場合は、後ろの方に書くと、undefinedと書かなくても良くなる
+sayHi = (name, message = 'I lile cake.') => `Hi ${name}! ${message}`;
+// console.log(sayHi('yoshipi'));
 
-// sayHi = (name, message = `${name}!`) => `Hi ${message}`;
-
-// let sum = (...nums) => {
-//   console.log(nums);
+//配列を使用して合計を計算する方法　ただし、引数を配列内に書くのが面倒
+// let sum = (nums) => {
 //   let total = 0;
 //   for (num of nums) {
 //     total += num;
 //   }
 //   return total;
 // };
-// console.log(sum([1, 3, 5, 3, 4, 5, 7]));
+// console.log(sum([1, 3, 5, 3 ,4, 5, 7]));
+
+//レストパラメーター(...)を使用すると、引数を配列にまとめることができる
+let sum = (...nums) => {
+  // console.log(nums);
+  let total = 0;
+  for (num of nums) {
+    total += num;
+  }
+  return total;
+};
+// console.log(sum(1, 3, 5, 3, 4, 5, 7));
+
+//callback関数　関数の中に関数を書くと、その関数が呼び出される
+let subtract = (a, b, callback) => {
+  let result = a - b;
+  callback(result);
+};
+subtract(10, 3, (result) => {
+  console.log(result);
+});
