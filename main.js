@@ -77,10 +77,31 @@ let sum = (...nums) => {
 // console.log(sum(1, 3, 5, 3, 4, 5, 7));
 
 //callback関数　関数の中に関数を書くと、その関数が呼び出される
+// let subtract = (a, b, callback) => {
+//   let result = a - b;
+//   callback(result);
+// };
+// subtract(10, 3, (result) => {
+//   console.log(result);
+// });
+
+//無名関数と名前付き関数の違い　結論：デバックする時に名前付き関数の方が良い表示の方法をしてくれる
+// let subtract = (a, b, callback) => {
+//   let result = a - b;
+//   callback(result);
+// };
+// subtract(10, 3, function showResult(result) {
+//   console.log(chocolate); ←わざとエラーを出す為の記述
+//   console.log(result);
+// });
+
+//引数はあとから変更出来る　最初は引数の３が代入されるが、関数を呼び出し後に３０を代入して変更することができる
+//こんなことはめったにしないが、できるということを知っていればいい
 let subtract = (a, b, callback) => {
+  a = 30;
   let result = a - b;
   callback(result);
 };
-subtract(10, 3, (result) => {
+subtract(10, 3, function showResult(result) {
   console.log(result);
 });
